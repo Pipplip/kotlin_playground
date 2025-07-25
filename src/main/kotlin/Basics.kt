@@ -4,6 +4,10 @@ package de.phbe
 // Konstanten
 const val KONSTANTE = 1.23
 
+// aliases
+// kein neuer Typ, sondern nur ein neuer Name für einen Typ
+typealias Centimeter = Int
+
 fun main(args: Array<String>) {
 
     // ++++++++++++++++++++++++++++++++++++++++++++++
@@ -134,6 +138,11 @@ fun main(args: Array<String>) {
     }finally {
         // do something
     }
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // aliases
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    val threeCenti : Centimeter = 3
 
 }
 

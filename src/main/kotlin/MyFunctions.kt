@@ -14,6 +14,8 @@ fun main(){
 
     read(2)
     read(3, "Drei")
+
+    println(33.toBinary()) // 100001
 }
 
 // Funktionsparameter sind immer val (read only)
@@ -34,4 +36,12 @@ fun sum2(a: Int, b: Int) = a + b
 // Default values der Parameter
 fun read(number: Int, input: String = "Default", len: Int = input.length){
     println("$number, $input, $len")
+}
+
+// Extension Functions
+// erweitern primitive Typen, als auch Klassen
+// Hier return String und kann auf Int angewendet werden
+// z.B. 32.toBinary()
+fun Int.toBinary(): String{
+    return this.toString(2)
 }
