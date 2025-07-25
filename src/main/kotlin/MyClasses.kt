@@ -79,8 +79,39 @@ class DerivedClass1(id:String): Base1(id)
 
 // was aber auch geht, also wenn man den Parameter nicht braucht, dann setzt man default values
 class DerivedClass2 : Base1("")
+// Oder man macht einen sekun. Konstruktor und ruft super auf
+class DerivedClass3 : Base1{
+    constructor(id:String) : super(id)
+}
 
+// Methoden überschreiben
+open class Base2{
+    open fun sayHello(){
+        println("Base Funktion")
+    }
 
+    fun functionCallInSubClass() {
+        println("FunctionCallInSubClass")
+    }
+}
+
+class Dervived4 : Base2(){
+    override fun sayHello() {
+        println("subclass Funktion")
+    }
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++
+// Companion object
+// Eine Art Singleton
+// Also eine Abbildung statischer Variablen und Methoden
+// ++++++++++++++++++++++++++++++++++++++++++++++
+class CompTest(){
+    companion object{
+        const val PI = 3.14
+        fun calc(diameter: Double): Double = diameter * PI
+    }
+}
 
 
 fun main(){
@@ -103,6 +134,13 @@ fun main(){
     // Bsp. Vererbung
     val derived = DerivedClass1("2")
 
+    Dervived4().functionCallInSubClass() // FunctionCallInSubClass
+    Base2().sayHello() // Base Funktion
+    Dervived4().sayHello() // subclass Funktion
+
+    // Bsp. Comanion Object
+    val comp = CompTest()
+    println(CompTest.calc(100.toDouble())) // 314.0
 
 }
 
