@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ed2d7332-2bba-4e5b-9655-d5dee3e191fc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Basics.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Basics.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/MyFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/MyFunctions.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +33,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Kotlin.MyClassesAndInterfacesKt.executor": "Run",
     "Kotlin.MyCollectionsKt.executor": "Run",
     "Kotlin.MyFunctionsKt.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -51,7 +50,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Kotlin.MyFunctionsKt">
+  <component name="RunManager" selected="Kotlin.MyClassesKt">
+    <configuration name="MyClassesKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.phbe.MyClassesKt" />
+      <module name="kotlin_playground" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyCollectionsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.phbe.MyCollectionsKt" />
       <module name="kotlin_playground" />
@@ -68,6 +74,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MyClassesKt" />
         <item itemvalue="Kotlin.MyFunctionsKt" />
         <item itemvalue="Kotlin.MyCollectionsKt" />
       </list>
@@ -93,7 +100,7 @@
       <updated>1751436977671</updated>
       <workItem from="1751436979167" duration="707000" />
       <workItem from="1753442471373" duration="28000" />
-      <workItem from="1753445225132" duration="3028000" />
+      <workItem from="1753445225132" duration="5505000" />
     </task>
     <servers />
   </component>
