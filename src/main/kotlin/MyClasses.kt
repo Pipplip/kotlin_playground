@@ -1,5 +1,8 @@
 package de.phbe
 
+import sun.security.util.Length
+import java.util.UUID
+
 // ++++++++++++++++++++++++++++++++++++++++++++++
 // Klassen bestehen aus:
 // Konstruktoren,
@@ -134,6 +137,45 @@ class PropAccessTest(){
     fun validateName(value: String) = if(value.isBlank()) "Default" else value
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++
+// Abstract classes
+// Können nicht initialisiert werden und sind automatisch "open"
+// ++++++++++++++++++++++++++++++++++++++++++++++
+abstract class Base3Abs(protected val length: Int){
+    abstract val name: String
+    abstract fun generateId(): String
+}
+
+class IdGenerator(override val name: String, length: Int) :  Base3Abs(length){
+    override fun generateId(): String = UUID.randomUUID().toString().substring(0, length)
+}
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++
+// Inner classes
+// haben Zugriff auf die Klasse, die sie erstellt hat
+// ++++++++++++++++++++++++++++++++++++++++++++++
+class OuterClass{
+    private val id = "123"
+
+    inner class InnerClass{
+        fun printId(){
+            println("ID ist: $id")
+        }
+    }
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++
+// Anonyme Classes
+// Eine anonyme Klasse ist eine einmalige Implementierung einer Schnittstelle
+// oder abstrakten Klasse, ohne dass du einen neuen Klassennamen erstellst.
+// In Kotlin als Deklaration eines "object"
+// ++++++++++++++++++++++++++++++++++++++++++++++
+interface ClickListener{
+    fun onClick()
+}
+// weiter in der main Funktion: val listener
+
 
 fun main(){
 
@@ -163,6 +205,23 @@ fun main(){
     val comp = CompTest()
     println(CompTest.calc(100.toDouble())) // 314.0
 
+    // Bsp. Abstract
+    // val abs = Base3Abs(3) // compile error!
+    val abs = IdGenerator("ABC", 4)
+    println(abs.generateId())
+
+    // Bsp. Inner class
+    val outer = OuterClass()
+    val inner = outer.InnerClass()
+    inner.printId()
+
+    // Bsp. anonyme class
+    val listener = object : ClickListener{
+        override fun onClick() {
+            println("clicked")
+        }
+    }
+    listener.onClick()
 }
 
 
