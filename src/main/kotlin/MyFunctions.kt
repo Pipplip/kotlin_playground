@@ -15,7 +15,13 @@ fun main(){
     read(2)
     read(3, "Drei")
 
+    // Extension Function
     println(33.toBinary()) // 100001
+    val middleValue = listOf(1,2,3,4).middle()
+    println(middleValue)
+
+    // Extension Properties
+    extPropTest()
 }
 
 // Funktionsparameter sind immer val (read only)
@@ -41,7 +47,28 @@ fun read(number: Int, input: String = "Default", len: Int = input.length){
 // Extension Functions
 // erweitern primitive Typen, als auch Klassen
 // Hier return String und kann auf Int angewendet werden
+// Sie verändern nicht die Zielklasse
+// Der Receiver kann null sein
 // z.B. 32.toBinary()
 fun Int.toBinary(): String{
     return this.toString(2)
+}
+
+// Extension Functions können auf beliebige Typen definiert werden
+fun <T> List<T>.middle(): T? {
+    return if (this.size == 0){
+        null
+    }else
+        this[this.size/2]
+}
+
+// Extension properties
+// Analog einer extension function
+// Verhalten nur über get() und set() implementierbar
+val List<Any>.lastIndex: Int
+    get() = size -1
+
+fun extPropTest(){
+    val n = listOf(1,2,3).lastIndex
+    println(n)
 }

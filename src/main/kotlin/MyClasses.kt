@@ -177,6 +177,15 @@ interface ClickListener{
 // weiter in der main Funktion: val listener
 
 
+// ++++++++++++++++++++++++++++++++++++++++++++++
+// Data classes
+// schnelle Deklaration zur reinen Datenhaltung
+// ähnlich einem DTO in Java
+// Gro0er Vorteil: Datenklassen kann man destructurieren, d.h.
+// einzelne Daten werden in Komponenten zerlegt
+// ++++++++++++++++++++++++++++++++++++++++++++++
+data class MyDataClass(val isbn: String, val name: String)
+
 fun main(){
 
     // Bsp. Fish2
@@ -222,6 +231,20 @@ fun main(){
         }
     }
     listener.onClick()
+
+    // Bsp. data class
+    val book1 = MyDataClass("isbn1", "Lord of the Rings")
+    println(book1)
+    val book2 = book1.copy()
+    println(book1 == book2) // true
+    println(book1 === book2) // false
+
+    // Destructuring
+    val book3 = MyDataClass("isbn3", "The Hobbit")
+    val (i,n) = book3
+    println(i) // isbn3
+
+
 }
 
 
