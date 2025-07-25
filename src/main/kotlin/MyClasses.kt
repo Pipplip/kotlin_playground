@@ -113,6 +113,27 @@ class CompTest(){
     }
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++
+// Property accessors
+// Properties haben automatisch set und get accessors, die angepasst werden können
+// field ist vorgegeben und entspricht der Variablen
+// ++++++++++++++++++++++++++++++++++++++++++++++
+class PropAccessTest(){
+    var name: String = ""
+        get() {
+            return field
+        }
+//        set(value) {
+//            field = value
+//        }
+        set(value){
+            field = validateName(value)
+        }
+
+    // Anwendungsfall: validiere den Namen beim Setzen
+    fun validateName(value: String) = if(value.isBlank()) "Default" else value
+}
+
 
 fun main(){
 
