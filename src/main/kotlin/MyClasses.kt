@@ -186,6 +186,23 @@ interface ClickListener{
 // ++++++++++++++++++++++++++++++++++++++++++++++
 data class MyDataClass(val isbn: String, val name: String)
 
+// Operator Overloading:
+// um benutzerdefinierte Implementierungen für Standardoperatoren
+// wie +, -, *, [], ==, etc. definieren.
+data class Vector(val x:Int, val y:Int) {
+    // Operator '+' überladen für Vektoraddition
+    operator fun plus(other: Vector): Vector {
+        return Vector(x + other.x, y + other.y)
+    }
+
+    // Operator '-' überladen für Vektorsubtraktion
+    operator fun minus(other: Vector): Vector {
+        return Vector(x - other.x, y - other.y)
+    }
+
+}
+
+
 fun main(){
 
     // Bsp. Fish2
@@ -195,14 +212,17 @@ fun main(){
     dory.age = 30
     dory.sayHello()
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
     // Bsp. Fish3
     val sam = Fish3("Sam", 30)
     sam.introduce()
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
     // Bsp. Fish4 mit init
     val tom = Fish4("Tom")
     tom.introduce()
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
     // Bsp. Vererbung
     val derived = DerivedClass1("2")
 
@@ -210,20 +230,24 @@ fun main(){
     Base2().sayHello() // Base Funktion
     Dervived4().sayHello() // subclass Funktion
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
     // Bsp. Comanion Object
     val comp = CompTest()
     println(CompTest.calc(100.toDouble())) // 314.0
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
     // Bsp. Abstract
     // val abs = Base3Abs(3) // compile error!
     val abs = IdGenerator("ABC", 4)
     println(abs.generateId())
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
     // Bsp. Inner class
     val outer = OuterClass()
     val inner = outer.InnerClass()
     inner.printId()
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
     // Bsp. anonyme class
     val listener = object : ClickListener{
         override fun onClick() {
@@ -232,6 +256,7 @@ fun main(){
     }
     listener.onClick()
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
     // Bsp. data class
     val book1 = MyDataClass("isbn1", "Lord of the Rings")
     println(book1)
@@ -244,6 +269,12 @@ fun main(){
     val (i,n) = book3
     println(i) // isbn3
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // Bsp: Operator overloading
+    val a = Vector(3, 4)
+    val b = Vector(1, 2)
+    val sum = a + b//  nutzt operator plus
+    println(sum)
 
 }
 
