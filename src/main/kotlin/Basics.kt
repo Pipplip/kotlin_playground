@@ -124,6 +124,17 @@ fun main(args: Array<String>) {
         println("i = ${args[i]}")
     }
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // Exceptions
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    try {
+        // some code
+    }catch (e: Exception){
+        println(e.message)
+    }finally {
+        // do something
+    }
+
 }
 
 
