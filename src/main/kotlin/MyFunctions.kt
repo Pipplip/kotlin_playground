@@ -22,6 +22,13 @@ fun main(){
 
     // Extension Properties
     extPropTest()
+
+    // Infix functions
+    println(3 times "Hi ")
+    val alice = Person("Alice")
+    val bob = Person("Bob")
+    // Infix-Aufruf statt alice.loves(bob)
+    println(alice loves bob)  // Ausgabe: Alice loves Bob
 }
 
 // Funktionsparameter sind immer val (read only)
@@ -71,4 +78,19 @@ val List<Any>.lastIndex: Int
 fun extPropTest(){
     val n = listOf(1,2,3).lastIndex
     println(n)
+}
+
+// Infix Functions
+// sind spezielle Funktionen, die du mit einer klaren,
+// lesbaren Syntax ohne Punkt und Klammern aufrufen kannst —
+// also wie einen Operator oder ein Schlüsselwort.
+// Dienen nur um die Lesbarkeit zu erhöhen
+infix fun Int.times(str: String) = str.repeat(this)
+// in main: 3 times "Hi "
+
+// in einer Klasse
+class Person(val name: String){
+    infix fun loves(other: Person): String{
+        return "$name loves ${other.name}"
+    }
 }

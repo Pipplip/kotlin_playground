@@ -19,8 +19,8 @@ import java.util.UUID
 
 // Primäre Konstruktoren sind Teil vom Klassenkopf
 // Primärer Konstruktor ist optional: kann auch einfach "class Fish" heißen
-// Parameter sind val (read only) by default
 // Parameter können auch mit default Werten gesetzt werden
+// Parameter sind nicht automatisch Properties
 class Fish(name: String, age: Int)
 
 // Bsp: Properties
@@ -31,6 +31,23 @@ class Fish2(val name: String){
     fun sayHello() {
         println("Hello, $name")
     }
+}
+
+// Bsp2: Properties + Konstruktor Parameter
+class Shark(name: String, val color: String, var eats: String){
+    // name könnte man in der main weder lesen noch schreiben
+    // da name weder var noch val ist, wird es nicht als Property angelegt
+    // also es gibt kein Feld "name" in der Klasse
+    // val s = Shark()
+    // s.name // FEHLER
+
+    // color könnte man in der main nur lesen, weil dann eine Property angelegt wird:
+    // val color entspricht in Java: private final String name; mit Getter getName()
+
+    // eats kann man in der main lesen und schreiben
+    // var age entspricht in Java: private int age; + getAge() + setAge(int)
+
+    // siehe Fish4 für ein weiters Bsp.
 }
 
 // Sekundäre Konstruktoren
@@ -51,20 +68,34 @@ class Fish3(val name: String){
 }
 
 // Mit init
-// init ist Teil des primören Konstruktors
-// Können auf Parameter des prim . K. zugreifen
+// init ist Teil des primären Konstruktors
+// Können auf Parameter des primären K. zugreifen
 // Können read only Variablen befüllen und zugreifen
 class Fish4(name: String){
     val upperName: String
 
     init {
+        // Macht hier Sinn, da der Konstruktorparameter weder val noch var ist
         upperName = name.uppercase()
     }
 
     fun introduce(){
         println("Hi $upperName")
     }
+}
 
+// weiteres Beispiel für Spring
+class HelloService(){
+    fun greet(): String = "Hello from service!"
+}
+class RestControllerBeispiel(service: HelloService) { // <-- kein val oder var hier!
+    // service wird nur intern verwendet, also:
+    private val helloService = service
+
+    //@GetMapping("/hello")
+    fun sayHello(): String {
+        return helloService.greet()
+    }
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++
@@ -188,7 +219,7 @@ data class MyDataClass(val isbn: String, val name: String)
 
 // Operator Overloading:
 // um benutzerdefinierte Implementierungen für Standardoperatoren
-// wie +, -, *, [], ==, etc. definieren.
+// wie +, -, *, [], ==, etc. zu definieren.
 data class Vector(val x:Int, val y:Int) {
     // Operator '+' überladen für Vektoraddition
     operator fun plus(other: Vector): Vector {
@@ -199,9 +230,44 @@ data class Vector(val x:Int, val y:Int) {
     operator fun minus(other: Vector): Vector {
         return Vector(x - other.x, y - other.y)
     }
-
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++
+// Sealed classes
+// Können nur im gleichen Package vererbt werden
+// d.h. man hat eine feste Menge an Subtypen
+// Vorteil: Man kann ein when ohne else machen
+// ++++++++++++++++++++++++++++++++++++++++++++++
+sealed interface MySealedInterface
+sealed class BaseError
+class X : BaseError(), MySealedInterface
+class Y : BaseError(), MySealedInterface
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++
+// Delegation
+// Delegation in Kotlin bedeutet, dass eine Klasse die Implementierung
+// von Funktionen oder Eigenschaften an ein anderes Objekt übergibt,
+// statt sie selbst zu implementieren – z.B. über das Schlüsselwort by
+// ++++++++++++++++++++++++++++++++++++++++++++++
+interface Printer{
+    fun printMessage()
+    fun printFooter()
+}
+class RealPrinter : Printer{
+    override fun printMessage() {
+        println("Hello, AM the real printer")
+    }
+
+    override fun printFooter() {
+        println("Footer, AM the real printer")
+    }
+}
+class DelegatingPrinter(printer: Printer) : Printer by printer{
+    override fun printFooter() {
+        println("Den Footer zeige ich selbst. Gez. DelegatingPrinter")
+    }
+}
 
 fun main(){
 
@@ -276,6 +342,20 @@ fun main(){
     val sum = a + b//  nutzt operator plus
     println(sum)
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // Bsp: Sealed classes
+    val seal: MySealedInterface = X()
+    when(seal){
+        is X -> { println("X")}
+        is Y -> { println("Y")}
+    }
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // Bsp: Delegation
+    val realPrinter1 = RealPrinter()
+    val delegatePrinter = DelegatingPrinter(realPrinter1)
+    delegatePrinter.printMessage() // Ruft intern realPrinter.printMessage() auf
+    delegatePrinter.printFooter()
 }
 
 
