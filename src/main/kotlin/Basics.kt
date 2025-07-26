@@ -128,6 +128,36 @@ fun main(args: Array<String>) {
         println("i = ${args[i]}")
     }
 
+    // while
+    var count = 5
+    while (count > 1){
+        println(count)
+        count--
+
+        if(count == 3) break
+        if(count == 4) continue
+    }
+
+    // while with breaker
+    // break um aus beiden loops zu kommen
+    var outer = 5
+    var inner = 5
+    outer@while (outer > 1){
+        outer--
+        while (inner > 1){
+            inner--
+            if(outer == 3) break@outer
+        }
+        inner = 5
+    }
+
+    // do while
+    count = 5
+    do{
+        println(count)
+        count--
+    }while (count > 1)
+
     // ++++++++++++++++++++++++++++++++++++++++++++++
     // Exceptions
     // ++++++++++++++++++++++++++++++++++++++++++++++
