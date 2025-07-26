@@ -1,5 +1,8 @@
 package de.phbe
 
+import java.io.File
+import java.io.FileOutputStream
+
 
 // Konstanten
 const val KONSTANTE = 1.23
@@ -169,10 +172,30 @@ fun main(args: Array<String>) {
         // do something
     }
 
+    // try with resources (Schluesselwort use)
+    val file = File("out.txt")
+    FileOutputStream(file).use{
+        it.write(64)
+        Thread.sleep(10_000)
+    }
+
     // ++++++++++++++++++++++++++++++++++++++++++++++
     // aliases
     // ++++++++++++++++++++++++++++++++++++++++++++++
     val threeCenti : Centimeter = 3
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // Nullable Types
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // In Kotlin ist nichts null.
+    // Wenn etwas null sein darf, muss man es explizit sagen
+    // mit einem Fragezeichen hinter dem Typ z.B. String?
+    // Der Elvis Operator (?:) prüft auf null und gibt Defaultwerte bei null zurück
+    val name: String? = null
+    val length = name?.length // wenn name null ist, wird length auch null (anstatt Exception zu werfen)
+    println(length)
+    val length2 = name?.length ?: 0
+    println(length2)
 
 }
 
