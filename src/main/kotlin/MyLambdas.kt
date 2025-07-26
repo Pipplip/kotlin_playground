@@ -1,8 +1,12 @@
 package de.phbe
 
 // Funktionale Interfaces - Vorwissen zu Lambdas
-// SAM = Single-Abstract-Method
-//
+// SAM = Single-Abstract-Method = ein Interface, dass genau eine abstract Methode hat wie z.B: Runnable oder Comparator
+// Kotlin erlaubt dir, ein Lambda statt eines Objekts zu übergeben,
+// das ein SAM-Interface implementiert.
+// Kotlin konvertiert das Lambda automatisch zu einem Objekt,
+// das dieses Interface implementiert.
+
 // Sender		  []-> erwartet nichts, gibt aber was zurück
 // Consumer	    ->[]   erwartet etwas, gibt nichts zurück
 // Function     ->[]-> erwartet etwas, verarbeitet es und gibt es aus

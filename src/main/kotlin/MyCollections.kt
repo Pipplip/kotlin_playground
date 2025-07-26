@@ -41,5 +41,26 @@ fun main(){
     val set2 = mutableSetOf("a","b","c")
     val map2 = mutableMapOf<String, Int>()
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // ranges
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // Sequenz von Werten innerhalb fester Grenzen
+    // ranges erben von Iterable<T>
+    val r: IntRange = 1..3
+    val r2 = 1 until 5
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // sequences
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // sind "lazy" und erzeugen nicht neue Instanzen, wenn man z.B. Listen verarbeitet
+    // und daraus neue Listen entstehen
+    val mySequence = sequenceOf("One", 2, true, "abc", 33)
+
+    val first = mySequence
+        .onEach { println("processing $it") }
+        .map(Any::toString) // transformation
+        .first{ it.startsWith("a")}
+    println(first)
+
 }
 
