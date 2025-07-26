@@ -94,3 +94,13 @@ class Person(val name: String){
         return "$name loves ${other.name}"
     }
 }
+
+// Preconditions
+val isRunning = false
+fun fktWithPreconditions(v: Int, name: String?){
+    require(v % 2 == 0) // muss eine gerade Zahl sein
+    requireNotNull(name) // name darf nicht null sein
+    check(isRunning){ "Sorry, Still running..." }
+
+    error("Execution overtime...")
+}
