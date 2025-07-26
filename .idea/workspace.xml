@@ -56,7 +56,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Kotlin.BasicsKt">
+  <component name="RunManager" selected="Kotlin.MyFunctionsKt">
     <configuration name="BasicsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.phbe.BasicsKt" />
       <module name="kotlin_playground" />
@@ -94,10 +94,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MyFunctionsKt" />
         <item itemvalue="Kotlin.BasicsKt" />
         <item itemvalue="Kotlin.MyCollectionsKt" />
         <item itemvalue="Kotlin.MyLambdasKt" />
-        <item itemvalue="Kotlin.MyFunctionsKt" />
         <item itemvalue="Kotlin.MyClassesKt" />
       </list>
     </recent_temporary>

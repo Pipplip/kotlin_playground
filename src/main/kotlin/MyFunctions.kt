@@ -29,6 +29,12 @@ fun main(){
     val bob = Person("Bob")
     // Infix-Aufruf statt alice.loves(bob)
     println(alice loves bob)  // Ausgabe: Alice loves Bob
+
+    // scope functions
+    val prd = ProductBuilder()
+        .name("Auto")
+        .priceInCent(199)
+        .build()
 }
 
 // Funktionsparameter sind immer val (read only)
@@ -104,3 +110,24 @@ fun fktWithPreconditions(v: Int, name: String?){
 
     error("Execution overtime...")
 }
+
+// Scope functions
+// z.B. Builder pattern
+class Product
+class ProductBuilder{
+    private var name : String = ""
+    private var price : Double = 0.0
+
+    fun name(s: String) = this.apply { name = s }
+    fun priceInCent(n:Int) = this.apply { price = n/100.0 }
+
+    fun build() {
+        println("Build $name with price in cents $price")
+        Product()
+    }
+}
+
+// apply = Ich möchte an mir arbeiten, und dabei ich bleiben
+// also = An bzw. mit etwas soll gearbeitet werden ohne es zu transformieren
+// run = Ich möchte mit mir arbeiten und mich verändern
+// let = An etwas soll gearbeitet und dabei transformiert werden
