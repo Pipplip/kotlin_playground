@@ -197,8 +197,21 @@ fun main(args: Array<String>) {
     val length2 = name?.length ?: 0
     println(length2)
 
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // Generics
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // Ein Generic ist ein generischer Typ-Parameter, der für einen beliebigen Datentyp steht
+    // Er wird verwendet, um Funktionen oder Klassen generisch und damit flexibel und wiederverwendbar zu machen
+    // Stell dir eine Schachtel (Box) vor, die du mit allem Möglichen befüllen kannst –
+    // Äpfel, Bücher oder Spielzeug. Ein Generic ist wie diese Schachtel:
+    // Sie ist nicht auf einen bestimmten Inhalt festgelegt, sondern funktioniert mit allem, solange du beim Ein- und Auspacken den Typ beachtest.
+    printItem("Gen1")
+    printItem(123)
 }
 
+fun <T> printItem(item: T) {
+    println(item)
+}
 
 class StaticProperty(){
     // companion object entspricht einer static Klassenvariable

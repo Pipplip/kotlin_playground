@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ed2d7332-2bba-4e5b-9655-d5dee3e191fc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/MyFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/MyFunctions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Basics.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Basics.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +52,11 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "trusted.hosts",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Kotlin.MyFunctionsKt">
+  <component name="RunManager" selected="Kotlin.BasicsKt">
     <configuration name="BasicsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.phbe.BasicsKt" />
       <module name="kotlin_playground" />
@@ -94,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.MyFunctionsKt" />
         <item itemvalue="Kotlin.BasicsKt" />
+        <item itemvalue="Kotlin.MyFunctionsKt" />
         <item itemvalue="Kotlin.MyCollectionsKt" />
         <item itemvalue="Kotlin.MyLambdasKt" />
         <item itemvalue="Kotlin.MyClassesKt" />
