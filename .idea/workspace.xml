@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ed2d7332-2bba-4e5b-9655-d5dee3e191fc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Basics.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Basics.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/MyCollections.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/MyCollections.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +45,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/Philipp/intellij-Projekte/kotlin_github/kotlin_playground",
     "node.js.detected.package.eslint": "true",
@@ -52,7 +53,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "trusted.hosts",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
