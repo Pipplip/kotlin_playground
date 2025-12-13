@@ -1,6 +1,18 @@
 package de.phbe
 
 fun main(){
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+    // Collections:
+    // In Kotlin gibst du nur den Typ an, Kotlin entscheidet die konkrete Implementierung.
+    // Bsp: Ich gebe nur den Typ an z.B: val a: List<String>
+    // Kotlin erzeugt aus listOf("A", "B") intern eine Liste.
+    // Das kann eine ArrayList, LinkedList oder Vector sein.
+    // Wir wissen es nicht und sollen es nicht wissen.
+    // Wenn man was spezielles braucht, kann man das schon machen, sollte man aber in den
+    // meisten Fällen nicht: val list = ArrayList<String>()
+    // ++++++++++++++++++++++++++++++++++++++++++++++
+
     // ++++++++++++++++++++++++++++++++++++++++++++++
     // Arrays
     // werden durch Array<T> abgebildet und sind iterable
@@ -32,14 +44,14 @@ fun main(){
     // Collections
     // ++++++++++++++++++++++++++++++++++++++++++++++
     // read only Listen
-    val list = listOf(1,2,3)
-    val set = setOf("a","b","c")
-    val map = mapOf("a" to 1, "b" to 2, "c" to 3)
+    val list: List<Int> = listOf(1,2,3)
+    val set: Set<String> = setOf("a","b","c")
+    val map: Map<String, Int> = mapOf("a" to 1, "b" to 2, "c" to 3)
 
     // read write Listen
-    val list2 = mutableListOf<Boolean>()
-    val set2 = mutableSetOf("a","b","c")
-    val map2 = mutableMapOf<String, Int>()
+    val list2: MutableList<Boolean> = mutableListOf<Boolean>()
+    val set2: MutableSet<String> = mutableSetOf("a","b","c")
+    val map2: MutableMap<String, Int> = mutableMapOf<String, Int>()
 
     // Tipps:
     // Nutze Standardfunktionen anstatt zu iterieren!
