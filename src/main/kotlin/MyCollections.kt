@@ -42,14 +42,16 @@ fun main(){
 
     // ++++++++++++++++++++++++++++++++++++++++++++++
     // Collections
+    // Kotlin will von uns nur den Typ.
+    // Das wie, also welche Form (ArrayList, LinkedList etc) der Collection, entscheidet Kotlin selbst
     // ++++++++++++++++++++++++++++++++++++++++++++++
     // read only Listen
-    val list: List<Int> = listOf(1,2,3)
+    val list: List<Int> = listOf(1,2,3) // kürzer: val list = listOf(1,2,3)
     val set: Set<String> = setOf("a","b","c")
     val map: Map<String, Int> = mapOf("a" to 1, "b" to 2, "c" to 3)
 
     // read write Listen
-    val list2: MutableList<Boolean> = mutableListOf<Boolean>()
+    val list2: MutableList<Boolean> = mutableListOf<Boolean>() // kürzer: val list2 = mutableListOf<Boolean>()
     val set2: MutableSet<String> = mutableSetOf("a","b","c")
     val map2: MutableMap<String, Int> = mutableMapOf<String, Int>()
 
