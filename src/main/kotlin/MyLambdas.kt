@@ -1,77 +1,44 @@
 package de.phbe
 
+// Lambdas sind anonyme Funktionen, ohne einen expliziten Namen zu definieren
+
 // Funktionale Interfaces - Vorwissen zu Lambdas
 // SAM = Single-Abstract-Method = ein Interface, dass genau eine abstract Methode hat wie z.B: Runnable oder Comparator
 // Kotlin erlaubt dir, ein Lambda statt eines Objekts zu übergeben,
 // das ein SAM-Interface implementiert.
 // Kotlin konvertiert das Lambda automatisch zu einem Objekt,
 // das dieses Interface implementiert.
+// Kotlin braucht keine funktionale Interfaces wie java
 
 // Sender		  []-> erwartet nichts, gibt aber was zurück
 // Consumer	    ->[]   erwartet etwas, gibt nichts zurück
 // Function     ->[]-> erwartet etwas, verarbeitet es und gibt es aus
 // Predicate	->[]-> Gibt true oder false zurück
 
-// Lambda all. Syntax:
+// +++++++++++++++++++++++++++++++++++++++++
+// Lambda allg. Syntax:
 // val lambdaName: (ParameterTyp) -> RückgabeTyp = { parameterName -> Rückgabewert }
-
-// Kotlin braucht keine funktionale Interfaces wie java
-
-// --------------------------
-// Function references :: Notation
-// allg: Kotext::referenzierte Funktion
-fun fktRefTest(input: Any): Unit{
-    println(input)
-}
-// anderer Kontext: Hier eine Klasse
-class MyConsole{
-    fun printConsole(input: Any): Unit = println(">> $input")
-
-    companion object{
-        fun directPrint(input: Any): Unit{
-            println(input)
-        }
-    }
-
-}
-
-fun behind(str: String, pred: (String) -> Boolean) = pred(str)
-
-// --------------------------
-// Lambda with receivers - Nützlich für DSL (Domain specific Language)
-fun buildString(actions: StringBuilder.() -> Unit):String{
-    val builder = StringBuilder()
-    builder.actions()
-    return builder.toString()
-}
-
-// --------------------------
-// Inline functions
-// verbessern die Performance
-inline fun logAndRun(action: () -> Unit){
-    println("Start")
-    action()
-    println("End")
-}
+// Der Ausdruck befindet sich immer in {} Klammern
 
 fun main() {
-    // Sender: liefert einen Wert
+    // SENDER Beispiel
     val sender: () -> String = { "Hallo von Sender!" }
+    println(sender()) // Hallo von Sender
     // Hier: die Variable heisst sender
     // Der Typ ist () -> String (also ein Lambda Ausdruck)
     // {...} ist der Block in dem Code ausgeführt wird.
     // Der Body kann richtige Abfragen haben, z.B. if...
 
-    // Consumer: empfängt und verarbeitet einen Wert
+    // CONSUMER Beispiel: empfängt und verarbeitet einen Wert
     val consumer: (String) -> Unit = { message -> println("Consumer hat empfangen: $message") }
 
-    // Function: transformiert einen String in seine Länge
+    // FUNCTION Beispiel:
     // it verwendet man, wenn es nur genau einen Parameter gibt
-    val stringLength: (String) -> Int = { it.length }
+    val stringLength: (String) -> Int = { it.length }  // transformiert einen String in seine Länge
     // oder equivalent
     val stringLength2: (String) -> Int = { str -> str.length}
 
-    // Predicate: prüft, ob ein String leer ist
+    // PREDICATE: prüft, ob ein String leer ist
     val isEmpty: (String) -> Boolean = { it.isEmpty() }
 
     // --------------------------------------------------
@@ -125,4 +92,42 @@ fun main() {
     logAndRun {
         println("Running...")
     }
+}
+
+
+// --------------------------
+// Function references :: Notation
+// allg: Kotext::referenzierte Funktion
+fun fktRefTest(input: Any): Unit{
+    println(input)
+}
+// anderer Kontext: Hier eine Klasse
+class MyConsole{
+    fun printConsole(input: Any): Unit = println(">> $input")
+
+    companion object{
+        fun directPrint(input: Any): Unit{
+            println(input)
+        }
+    }
+
+}
+
+fun behind(str: String, pred: (String) -> Boolean) = pred(str)
+
+// --------------------------
+// Lambda with receivers - Nützlich für DSL (Domain specific Language)
+fun buildString(actions: StringBuilder.() -> Unit):String{
+    val builder = StringBuilder()
+    builder.actions()
+    return builder.toString()
+}
+
+// --------------------------
+// Inline functions
+// verbessern die Performance
+inline fun logAndRun(action: () -> Unit){
+    println("Start")
+    action()
+    println("End")
 }
