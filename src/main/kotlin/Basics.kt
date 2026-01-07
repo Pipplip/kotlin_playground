@@ -1,5 +1,3 @@
-package de.phbe
-
 import java.io.File
 import java.io.FileOutputStream
 

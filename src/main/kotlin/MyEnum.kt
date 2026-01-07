@@ -1,5 +1,3 @@
-package de.phbe
-
 // Standard ENUM
 enum class Prio{
     HIGH, MEDIUM, LOW

@@ -1,5 +1,3 @@
-package de.phbe
-
 // Lambdas sind anonyme Funktionen, ohne einen expliziten Namen zu definieren
 
 // Funktionale Interfaces - Vorwissen zu Lambdas

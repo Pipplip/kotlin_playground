@@ -1,4 +1,3 @@
-package de.phbe
 
 fun main(){
 
