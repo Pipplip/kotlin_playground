@@ -205,11 +205,22 @@ fun main(args: Array<String>) {
     // Sie ist nicht auf einen bestimmten Inhalt festgelegt, sondern funktioniert mit allem, solange du beim Ein- und Auspacken den Typ beachtest.
     printItem("Gen1")
     printItem(123)
+
+    val env: Envelope<List<String?>> = Envelope(3, listOf<String?>("A", "B", null))
+    println("Envelope count: ${env.count}, data: ${env.data.forEach { println(it) }}")
 }
 
+// <T> ist die generische Typ-Deklaration
 fun <T> printItem(item: T) {
     println(item)
 }
+
+// Envelope mit Typbeschränkung
+// Envelope gibt zurück eine Liste von beliebigen Typen, die auch null sein dürfen
+//
+class Envelope<T:List<Any?>>(val count: Int, val data: T)
+// gleich wie:
+class Envelope2<T>(val count: Int, val data: T) where T:List<Any?>{}
 
 class StaticProperty(){
     // companion object entspricht einer static Klassenvariable
