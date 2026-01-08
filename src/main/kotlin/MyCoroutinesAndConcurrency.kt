@@ -21,6 +21,24 @@
 // Asynchron = Aufgaben, die unabhängig voneinander ablaufen und nicht aufeinander warten müssen
 // Syncjhron = Aufgaben, die nacheinander ablaufen und aufeinander warten müssen
 
+// Coroutines sind nicht wie traditionelle Threads, da sie kooperativ sind.
+// Das bedeutet, dass sie an bestimmten Stellen (sogenannten Suspension Points)
+// ihre Ausführung pausieren können, um anderen Coroutines die Möglichkeit zu geben,
+// ausgeführt zu werden. Dies ermöglicht eine effizientere Nutzung von Ressourcen
+// und eine bessere Skalierbarkeit, da viele Coroutines auf wenigen Threads laufen können.
+// D.h. weniger Threads für die gleiche Anzahl an Aufgaben.
+
+// Wichtigste Bestandteile von Coroutines in Kotlin:
+// 1. Builders: Funktionen wie runBlocking, launch, async, coroutineScope zum Starten von Coroutines.
+//  1a. runBlocking: Startet eine Coroutine und blockiert den aktuellen Thread, bis sie abgeschlossen ist. Wird hauptsächlich in main-Funktionen und Tests verwendet.
+//  1b. launch: Asynchron. Startet eine neue Coroutine, die keinen Rückgabewert hat, und blockiert den Thread nicht. Wird oft für nebenläufige Aufgaben verwendet.
+//  1c. async: Startet eine neue Coroutine, die einen Rückgabewert hat (Deferred). Wird oft für parallele Aufgaben verwendet.
+//  1d. coroutineScope: Erstellt einen neuen Coroutine-Kontext und wartet
+// 2. CoroutineScope: Definiert den Lebenszyklus von Coroutines und verwaltet deren Kontext.
+// 3. Dispatcher: Bestimmt, auf welchem Thread oder Thread-Pool die Coroutine ausgeführt wird (z.B. Main, IO, Default).
+// 4. Suspend Functions: Funktionen, die pausiert und später wieder aufgenommen werden können.
+// 5. Jobs: Repräsentieren eine laufende Coroutine und ermöglichen deren Verwaltung (Start, Stopp, Statusabfrage).
+
 // Beispiel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
