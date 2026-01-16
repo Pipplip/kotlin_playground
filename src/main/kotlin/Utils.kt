@@ -105,4 +105,11 @@ class MyBytes{
 
     fun ByteArray.toHex(): String =
         joinToString(" ") { "%02X".format(it) }
+
+    // ByteArray -> to readable ASCII-Presentation
+    fun ByteArray.toPrintableAscii(): String = joinToString("") {
+        val c = it.toInt() and 0xFF
+        if (c in 32..126) c.toChar().toString() else "."
+    }
+
 }
