@@ -1,3 +1,5 @@
+package design_patterns.creational
+
 // Idiomatischer Einsatz des Builder-Designmusters in Kotlin (empfohlen)
 // Geeignet für komplexe Objekterstellung mit vielen optionalen Parametern
 // z.B. Konfigurationen, UI-Komponenten, Datenmodelle, Spring-Data-Entities

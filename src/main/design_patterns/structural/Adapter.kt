@@ -1,3 +1,5 @@
+package design_patterns.structural
+
 // Problem: You have an existing class with a specific interface, but you need it to work with another interface that your code expects.
 // You want to create a bridge between the two interfaces without modifying the existing class.
 // Lösung: Implementiere einen Adapter, der die Methoden des bestehenden Interfaces in das erwartete Interface übersetzt.

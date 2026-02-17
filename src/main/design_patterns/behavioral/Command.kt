@@ -1,3 +1,5 @@
+package design_patterns.behavioral
+
 // Das Command-Pattern kapselt eine Aktion in einem Objekt, sodass man:
 // 1. Aktionen als Objekte behandeln kann
 // 2. Aktionen parametrieren, speichern und rückgängig machen kann

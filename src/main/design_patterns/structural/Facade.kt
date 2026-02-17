@@ -1,3 +1,5 @@
+package design_patterns.structural
+
 // Ein Facade bietet eine einheitliche Schnittstelle für ein komplexes Subsystem.
 // Beispiel Online Shop mit mehreren Subsystemen: Lagerverwaltung, Zahlungsabwicklung, Versanddienstleister.
 

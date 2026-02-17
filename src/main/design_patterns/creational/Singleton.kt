@@ -1,3 +1,5 @@
+package design_patterns.creational
+
 // Example of Singleton Design Pattern in Kotlin
 // Option1 - Empfohlen: Benutzung von object Deklaration
 object Database {

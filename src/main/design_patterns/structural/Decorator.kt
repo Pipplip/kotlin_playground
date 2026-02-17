@@ -1,3 +1,5 @@
+package design_patterns.structural
+
 // erlaubt es dir, ein Lambda zu übergeben, das keinen Wert erwartet, aber einen Wert zurückgibt.
 // Also Objekte zur Laufzeit mit neuen Fähigkeiten ausstatten
 // ++++++++++++++++++++++++++++++++++++++++++++++

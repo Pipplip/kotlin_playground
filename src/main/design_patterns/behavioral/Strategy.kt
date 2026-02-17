@@ -1,3 +1,5 @@
+package design_patterns.behavioral
+
 // Das Strategy-Pattern kapselt veränderbares Verhalten in eigene Klassen oder Funktionen,
 // sodass man es zur Laufzeit austauschen kann, ohne die Hauptklasse zu ändern.
 

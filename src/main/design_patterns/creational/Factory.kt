@@ -1,3 +1,5 @@
+package design_patterns.creational
+
 // Factory Design Pattern Example in Kotlin
 // Geeignet, wenn die genaue Klasse des zu erstellenden Objekts zur Laufzeit bestimmt wird
 // z.B. bei der Arbeit mit verschiedenen Datenbanktypen, UI-Komponenten oder Dateiformaten

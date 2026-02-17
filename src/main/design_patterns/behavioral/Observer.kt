@@ -1,3 +1,5 @@
+package design_patterns.behavioral
+
 // Observer Design Pattern in Kotlin
 // Das Observer-Pattern definiert eine Eins-zu-viele-Abhängigkeit zwischen Objekten,
 // sodass wenn ein Objekt seinen Zustand ändert, alle abhängigen Objekte automatisch benachrichtigt werden und aktualisiert werden.

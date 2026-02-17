@@ -1,3 +1,5 @@
+package design_patterns.creational
+
 // Angenommen, wir bauen ein UI-Toolkit, das sowohl Windows- als auch MacOS-UI-Komponenten erzeugen kann.
 // Wir wollen Buttons und Checkboxes herstellen, ohne den Client-Code zu ändern, egal welches Betriebssystem genutzt wird.
 
